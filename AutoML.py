@@ -16,7 +16,7 @@ from pycaret.regression import compare_models as rcompare_models
 with st.sidebar:
     st.title("AutoStreamML")
     choice = st.radio("Navigation", ["Upload", "ML (Regression)", "ML (Classification)"])
-    st.info("This app allows you to build automated ML pipelines using Streamlit, Pandas Profiling, and PyCaret.")
+    st.info("This app allows you to build automated ML pipelines using Streamlit and PyCaret.")
 
 # Load dataset if exists
 if os.path.exists("source.csv"):
