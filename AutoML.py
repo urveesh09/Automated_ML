@@ -15,7 +15,7 @@ from pycaret.regression import compare_models as rcompare_models
 # Sidebar navigation
 with st.sidebar:
     st.title("AutoStreamML")
-    choice = st.radio("Navigation", ["Upload", "ML (Regression)", "ML (Classification)", "Download"])
+    choice = st.radio("Navigation", ["Upload", "ML (Regression)", "ML (Classification)"])
     st.info("This app allows you to build automated ML pipelines using Streamlit, Pandas Profiling, and PyCaret.")
 
 # Load dataset if exists
@@ -50,6 +50,8 @@ elif choice.startswith("ML"):
             compare_df = rpull()
             st.dataframe(compare_df)
             rsave_model(best_model, 'best_model')
+            with open("best_model.pkl", 'rb') as f:
+                st.download_button("Download the Model", f, "trained_model.pkl")
 
     elif task_type == "Classification":
         st.title("Auto ML Model Maker (Classification)")
@@ -65,9 +67,8 @@ elif choice.startswith("ML"):
             compare_df = pull()
             st.dataframe(compare_df)
             save_model(best_model, 'best_model')
+            with open("best_model.pkl", 'rb') as f:
+                st.download_button("Download the Model", f, "trained_model.pkl")
 
 
-# Download trained model
-elif choice == "Download":
-    with open("best_model.pkl", 'rb') as f:
-        st.download_button("Download the Model", f, "trained_model.pkl")
+
