@@ -51,7 +51,7 @@ elif choice.startswith("ML"):
             st.dataframe(compare_df)
             rsave_model(best_model, 'best_model')
             with open("best_model.pkl", 'rb') as f:
-                st.download_button("Download the Model", f, "trained_model.pkl")
+                st.download_button("Download the best Model", f, "trained_model.pkl")
 
     elif task_type == "Classification":
         st.title("Auto ML Model Maker (Classification)")
@@ -68,7 +68,7 @@ elif choice.startswith("ML"):
             st.dataframe(compare_df)
             save_model(best_model, 'best_model')
             with open("best_model.pkl", 'rb') as f:
-                st.download_button("Download the Model", f, "trained_model.pkl")
+                st.download_button("Download the best Model", f, "trained_model.pkl")
 
 
 
