@@ -40,7 +40,7 @@ def run():
             st.title("Auto ML Model Maker (Regression)")
             target = st.selectbox("Select the Target Column", df.columns)
             if st.button("Train Model"):
-                rsetup(df, target=target)
+                rsetup(df, target=target,memory=False)
                 setup_df = rpull()
                 st.info("Please do be patient, the larger the dataset, longer the wait ")
                 st.info("ML Experiment Settings")
@@ -57,7 +57,7 @@ def run():
             st.title("Auto ML Model Maker (Classification)")
             target = st.selectbox("Select the Target Column", df.columns)
             if st.button("Train Model"):
-                setup(df, target=target)
+                setup(df, target=target,memory=False)
                 setup_df = pull()
                 st.info("ML Experiment Settings")
                 st.info("Please do be patient, the larger the dataset, longer the wait ")
